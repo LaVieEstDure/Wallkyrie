@@ -1,5 +1,5 @@
 class Wallpaper{
-    private static string confpath = "/org/gnome/desktop/background/picture-uri"
+    private static string confpath = "/org/gnome/desktop/background/picture-uri";
 
     private static int slideshow_index = 0;
 

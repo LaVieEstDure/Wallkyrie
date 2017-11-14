@@ -2,22 +2,46 @@ class Window:Gtk.Window {
 
     public Window(){
         Object(title: "Wallkyrie",
-               height_request: 700,
-               width_request: 900,
+               height_request: 500,
+               width_request: 700,
                resizable: true);
+
+    /*
+     __________________________________________
+    |        window container (Gtk.Box)        |
+    | __________________     _________________ |
+    ||  options box     |   |   image box     ||
+    ||   (Gtk.Box)      |   |    (Gtk.Box)    ||
+    || ________________ |   | _______________ ||
+    ||| options grid   ||   ||   images      |||
+    |||  (Gtk.Grid)    ||   ||   (Gtk.Image) |||
+    |||                ||   ||               |||
+    |||                ||   ||               |||
+    |||                ||   ||               |||
+    |||________________||   ||_______________|||
+    ||__________________|   |_________________||
+    |__________________________________________|
+
+            S E L F - D O C U M E N T I N G
+    */
 
         Gtk.Box window_container = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
 
         Gtk.Box options_box = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
         this.add(options_box);
-        options_box.margin=10;
+        options_box.margin=35;
         window_container.pack_start(options_box);
 
         Gtk.Grid options_grid = new Gtk.Grid();
-        Gtk.Button button1 = new Gtk.Button.with_label ("1");
+        options_grid.row_spacing = 15;
+        options_grid.column_spacing = 15;
         options_box.pack_start(options_grid, true, true, 0);
-        options_grid.attach(button1, 0,0,1,1);
 
+        Gtk.Button file_chooser = new Gtk.Button.with_label("Choose Images");
+        options_grid.attach(file_chooser, 0,0,1,1);
+
+        Gtk.SpinButton timer = new Gtk.SpinButton.with_range(1, 60,1);
+        options_grid.attach(timer, 0, 1, 1, 1);
 
         this.show_all();
     }
@@ -44,6 +68,8 @@ class MainHeader: Gtk.HeaderBar {
 
     public MainHeader(){
         Object();
+        Gtk.Button settings = new Gtk.Button.from_icon_name("preferences-system-symbolic");
+        this.pack_end(settings);
     }
 
     construct{
