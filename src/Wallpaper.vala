@@ -17,7 +17,9 @@ class Wallpaper{
 
         Timeout.add (1000 * seconds, () => {
             Wallpaper.set_wallpaper (file_paths[slideshow_index]);
-            return slideshow_mode
+            return slideshow_mode;
         });
     }
+
+
 }

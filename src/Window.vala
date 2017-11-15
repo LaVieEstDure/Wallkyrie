@@ -1,6 +1,6 @@
-class Window:Gtk.Window {
+class MainWindow:Gtk.Window {
 
-    public Window(){
+    public MainWindow(){
         Object(title: "Wallkyrie",
                height_request: 500,
                width_request: 700,
@@ -25,17 +25,18 @@ class Window:Gtk.Window {
             S E L F - D O C U M E N T I N G
     */
 
-        Gtk.Box window_container = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
+        Gtk.Box window_container = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
 
         Gtk.Box options_box = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
         this.add(options_box);
-        options_box.margin=35;
+        options_box.margin=30;
         window_container.pack_start(options_box);
 
         Gtk.Grid options_grid = new Gtk.Grid();
-        options_grid.row_spacing = 15;
+        options_grid.row_spacing = 20;
         options_grid.column_spacing = 15;
         options_box.pack_start(options_grid, true, true, 0);
+
 
         Gtk.Button file_chooser = new Gtk.Button.with_label("Choose Images");
         options_grid.attach(file_chooser, 0,0,1,1);
@@ -43,7 +44,11 @@ class Window:Gtk.Window {
         Gtk.SpinButton timer = new Gtk.SpinButton.with_range(1, 60,1);
         options_grid.attach(timer, 0, 1, 1, 1);
 
+        Gtk.Button OK = new Gtk.Button.with_label("OK");
+        options_box.pack_end(OK, false, false, 0);
         this.show_all();
+
+
     }
 
 
@@ -56,12 +61,6 @@ class Window:Gtk.Window {
     }
 
 
-    public static int main (string[] args) {
-        Gtk.init(ref args);
-        Window win = new Window();
-        Gtk.main();
-        return 0;
-    }
 }
 
 class MainHeader: Gtk.HeaderBar {
