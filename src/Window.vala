@@ -71,6 +71,7 @@ class MainHeader: Gtk.HeaderBar {
         this.pack_end(settings);
     }
 
+
     construct{
         this.set_show_close_button(true);
         this.set_title("Wallkyrie");
