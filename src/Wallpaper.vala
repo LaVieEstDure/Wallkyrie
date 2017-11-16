@@ -1,6 +1,6 @@
 class Wallpaper{
-    //TODO: Figure out how DBus works so I dont have to use this hacky way
-    // God why do I do this to myself
+    //TODO: Apparently there is no way of using Dbus to change wallpapers yet
+    // Check again later at some point
 
     private static string confpath = "/org/gnome/desktop/background/picture-uri";
 

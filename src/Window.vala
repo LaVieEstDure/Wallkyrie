@@ -28,7 +28,7 @@ class MainWindow:Gtk.Window {
         Gtk.Box window_container = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
 
         Gtk.Box options_box = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
-        this.add(options_box);
+        this.add(window_container);
         options_box.margin=30;
         window_container.pack_start(options_box);
 
@@ -46,9 +46,13 @@ class MainWindow:Gtk.Window {
 
         Gtk.Button OK = new Gtk.Button.with_label("OK");
         options_box.pack_end(OK, false, false, 0);
+
+        Gtk.Box image_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
+        window_container.pack_end(image_box);
+        Gtk.Image image = new Gtk.Image.from_file("../images/test.jpg");
+        image_box.pack_end(image);
+
         this.show_all();
-
-
     }
 
 
