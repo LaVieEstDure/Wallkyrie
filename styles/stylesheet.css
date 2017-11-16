@@ -1,0 +1,10 @@
+@define-color primary_color #687ddb;
+
+.ok_button {
+    padding: 6px 10px 8px;
+    font-size:11px;
+    color: #fff;
+    background: @primary_color;
+    border: 1px solid darker(@primary_color);
+    transition: all 200ms ease-in-out;
+}

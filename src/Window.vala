@@ -45,6 +45,7 @@ class MainWindow:Gtk.Window {
         options_grid.attach(timer, 0, 1, 1, 1);
 
         Gtk.Button OK = new Gtk.Button.with_label("OK");
+        OK.get_style_context().add_class("ok_button");
         options_box.pack_end(OK, false, false, 0);
 
         Gtk.Box image_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
@@ -62,6 +63,15 @@ class MainWindow:Gtk.Window {
         window_position = Gtk.WindowPosition.CENTER;
         MainHeader hb = new MainHeader();
         this.set_titlebar(hb);
+
+        var stylesheet = File.new_for_path("../styles/stylesheet.css");
+        var dis = new DataInputStream (stylesheet.read());
+        //TODO: Figure out how to read from dis
+        Granite.Widgets.Utils.set_theming_for_screen(
+            this.get_screen(),
+            style,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
     }
 
 
