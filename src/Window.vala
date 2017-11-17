@@ -52,6 +52,10 @@ class MainWindow:Gtk.Window {
         //Gtk.Image image = new Gtk.Image.from_file("../images/test.jpg");
         //image_box.pack_end(image);
 
+        WallImage image = new WallImage();
+        image_box.pack_end(image);
+
+        file_chooser.clicked.connect (()=>{image.update();});
         this.show_all();
     }
 
