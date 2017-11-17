@@ -1,5 +1,6 @@
 # Wallkyrie
 [![GPL Licence](https://badges.frapsoft.com/os/gpl/gpl.png?v=103)](https://opensource.org/licenses/GPL-3.0/)
+[![Travis](https://travis-ci.org/LaVieEstDure/Wallkyrie.svg?branch=master)
 
 A simple GTK based Wallpaper manager for elementary OS
 
