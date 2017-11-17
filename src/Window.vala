@@ -37,7 +37,6 @@ class MainWindow:Gtk.Window {
         options_grid.column_spacing = 15;
         options_box.pack_start(options_grid, true, true, 0);
 
-
         Gtk.Button file_chooser = new Gtk.Button.with_label("Choose Images");
         options_grid.attach(file_chooser, 0,0,1,1);
 
@@ -50,8 +49,8 @@ class MainWindow:Gtk.Window {
 
         Gtk.Box image_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
         window_container.pack_end(image_box);
-        Gtk.Image image = new Gtk.Image.from_file("../images/test.jpg");
-        image_box.pack_end(image);
+        //Gtk.Image image = new Gtk.Image.from_file("../images/test.jpg");
+        //image_box.pack_end(image);
 
         this.show_all();
     }
@@ -64,17 +63,15 @@ class MainWindow:Gtk.Window {
         MainHeader hb = new MainHeader();
         this.set_titlebar(hb);
 
-        var stylesheet = File.new_for_path("../styles/stylesheet.css");
-        var dis = new DataInputStream (stylesheet.read());
-        //TODO: Figure out how to read from dis
+        string style;
+        FileUtils.get_contents("../styles/stylesheet.css", out style);
+        stdout.printf(style);
         Granite.Widgets.Utils.set_theming_for_screen(
             this.get_screen(),
             style,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
     }
-
-
 }
 
 class MainHeader: Gtk.HeaderBar {

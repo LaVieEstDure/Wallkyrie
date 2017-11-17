@@ -11,4 +11,5 @@ executable('Wallkyrie',
            './src/Window.vala',
            './src/Wallpaper.vala',
            './src/Wallkyrie.vala',
+           './src/WallImage.vala',
            dependencies :[gtk, granite, dconf, dbus, gio])
