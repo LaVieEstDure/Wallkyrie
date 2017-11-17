@@ -7,6 +7,7 @@ A simple GTK based Wallpaper manager for elementary OS
  - GTK
  - Granite
  - Dconf
+ - Gio
 
 ## Running
 Open your terminal emulator to the root directory of the project and run the following commands
