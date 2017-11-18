@@ -1,8 +1,0 @@
-[default]
-name=Default
-device=local
-runtime=host
-config-opts=--pkg gtk+-3.0
-prefix=/home/raghav/.var/app/org.gnome.Builder/cache/gnome-builder/install/src/host
-app-id=
-default=true
