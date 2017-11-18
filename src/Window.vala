@@ -47,15 +47,9 @@ class MainWindow:Gtk.Window {
         OK.get_style_context().add_class("ok_button");
         options_box.pack_end(OK, false, false, 0);
 
-        Gtk.Box image_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL,0);
-        window_container.pack_end(image_box);
-        //Gtk.Image image = new Gtk.Image.from_file("../images/test.jpg");
-        //image_box.pack_end(image);
+        var da = new WallImage();
+        window_container.pack_end(da);
 
-        WallImage image = new WallImage();
-        image_box.pack_end(image);
-
-        file_chooser.clicked.connect (()=>{image.update();});
         this.show_all();
     }
 

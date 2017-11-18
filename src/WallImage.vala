@@ -1,23 +1,27 @@
-class WallImage : Gtk.Image {
+class WallImage : Gtk.DrawingArea {
 
+    Gdk.Pixbuf pix;
     public WallImage(){
         Object();
-        this.margin = 25;
-        var pixbuf = new Gdk.Pixbuf.from_file_at_scale("../images/test.jpg", -1, 200, true);
-        this.set_from_pixbuf(pixbuf);
-    }
+        this.pix = new Gdk.Pixbuf.from_file("../images/test.jpg");
+}
 
-    public int update(){
-        Gtk.Allocation allocation;
-        this.get_allocation(out allocation);
-        Gdk.Pixbuf pixbuf = this.pixbuf.scale_simple(allocation.width, allocation.height,
-                                              Gdk.InterpType.BILINEAR);
-        this.set_from_pixbuf(pixbuf);
-        return 0;
-    }
 
     construct {
-        this.connect("expose-events", this.update);
+        this.draw.connect((ctx) => {
+            weak Gtk.StyleContext style_ctx = this.get_style_context();
+            int height = this.get_allocated_height();
+            int width = this.get_allocated_width();
+            this.pix.scale_simple(height, width, Gdk.InterpType.BILINEAR);
+
+            Gdk.RGBA color = style_ctx.get_color(0);
+            Gdk.cairo_set_source_pixbuf(ctx, this.pix, 1, 1);
+            ctx.paint();
+            Gdk.cairo_set_source_rgba(ctx, color);
+            ctx.fill();
+            return true;
+        });
     }
+
 
 }
